@@ -1,8 +1,10 @@
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { Container, Ola, Header, HeaderTabs } from "./styles";
+import { Header } from '../Header'
+import { Message } from '../Message'
+
+import { Container } from "./styles";
 
 export function MainPage() {
   const { navigate } = useNavigation();
@@ -13,17 +15,12 @@ export function MainPage() {
 
   return (
     <>
-      <Header>
-          <HeaderTabs>1</HeaderTabs>
-          <HeaderTabs>2</HeaderTabs>
-          <HeaderTabs>3</HeaderTabs>
-      </Header>
+      <Header />
+      
       <Container>
-        <Ola>Ola</Ola>
-        <TouchableOpacity>
-          <Text style={{ color: '#fff' }} onPress={goToChatPage}>Ir para chat</Text>
-        </TouchableOpacity>
-    </Container>
+        <Message />
+
+      </Container>
     </>
   )
 } 
