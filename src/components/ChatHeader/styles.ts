@@ -14,7 +14,7 @@ export const HeaderTop = styled.View`
   margin-top: 32px;
   margin-bottom: 32px;
   align-items: center;
-`;
+`
 
 export const Avatar = styled.Image`
   width: 46px;
@@ -26,11 +26,11 @@ export const Avatar = styled.Image`
 export const Wrapper = styled.View`
   flex-direction: row;
   align-items: center;
-`;
+`
 
 export const Nome = styled.Text`
   font-size: 20px;
   font-family: "Ubuntu_500Medium";
   color: #fff;
   width: 200px;
-`;
+`

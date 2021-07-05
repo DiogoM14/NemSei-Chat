@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { RectButton } from 'react-native-gesture-handler'
 
 export const Container = styled.TouchableOpacity`
   width: 100%;
@@ -7,7 +6,7 @@ export const Container = styled.TouchableOpacity`
   margin-top: 22px;
   align-items: center;
   justify-content: space-between;
-`;
+`
 
 export const Avatar = styled.Image`
   width: 62px;
@@ -38,7 +37,7 @@ export const Separator = styled.Text`
   color: #fff;
   font-size: 16px;
   margin: 0 8px;
-`;
+`
 
 export const Time = styled.Text`
   font-size: 16px;
@@ -56,7 +55,7 @@ export const MessageAbstract = styled.Text`
 
 export const NumberOfNotifications = styled.Text`
   padding: 4px 9px;
-  background: #8257E5;
+  background: #8257e6;
   border-radius: 20px;
   font-family: 'Ubuntu_500Medium';
 `

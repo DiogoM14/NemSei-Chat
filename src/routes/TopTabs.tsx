@@ -15,8 +15,8 @@ export function TopTabs() {
       <Navigator   
         tabBarOptions={{
           labelStyle: { fontSize: 14, color: '#fff', fontFamily: 'Ubuntu_500Medium' },
-          indicatorStyle: { backgroundColor: '#8257E5', borderRadius: 10 },
-          style: { backgroundColor: '#202024' },
+          indicatorStyle: { backgroundColor: '#8257e6', borderRadius: 10 },
+          style: { backgroundColor: '#1f1f1f' },
         }}
       >
         <Screen name="Pessoas" component={MainPage} />

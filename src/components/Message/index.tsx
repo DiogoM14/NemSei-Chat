@@ -1,5 +1,6 @@
 import React from 'react';
 import { FlatList } from 'react-native';
+
 import { Divider } from '../Divider';
 
 import { Container, Avatar, Wrapper, Content, Details, Name, Separator, Time, MessageAbstract, NumberOfNotifications } from './styles';
@@ -34,32 +35,30 @@ export function Message() {
 
   return (
     <>
-        <FlatList
-          data={messages}
-          keyExtractor={item => item.id}
-          renderItem={({ item }) => (
-            <Container activeOpacity={0.7}>
-              <Wrapper>
-                <Avatar source={{uri: "https://github.com/diogom14.png"}} />
-                <Content>
-                  <Details>
-                    <Name>{ item.name }</Name>
-                    <Separator>•</Separator>
-                    <Time>{ item.time }</Time>
-                  </Details>
-                  <MessageAbstract 
-                    numberOfLines={1}
-                  >
-                    { item.message }
-                  </MessageAbstract>
-                </Content>
-              </Wrapper>
+      <FlatList
+        data={messages}
+        keyExtractor={item => item.id}
+        ItemSeparatorComponent={() => <Divider />}
+        renderItem={({ item }) => (
+          <Container activeOpacity={0.7}>
+            <Wrapper>
+              <Avatar source={{uri: "https://github.com/diogom14.png"}} />
+              <Content>
+                <Details>
+                  <Name>{ item.name }</Name>
+                  <Separator>•</Separator>
+                  <Time>{ item.time }</Time>
+                </Details>
+                <MessageAbstract numberOfLines={1}>
+                  { item.message }
+                </MessageAbstract>
+              </Content>
+            </Wrapper>
 
-              <NumberOfNotifications>3</NumberOfNotifications>
-            </Container>
-          )}
-          ItemSeparatorComponent={() => <Divider />}
+            <NumberOfNotifications>3</NumberOfNotifications>
+          </Container>
+        )}
         />
     </>
-  );
-};
+  )
+}

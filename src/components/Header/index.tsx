@@ -1,10 +1,8 @@
-import React from 'react';
+import React from 'react'
 
 import { Feather } from '@expo/vector-icons'
 
-import { Container, Titulo, HeaderTop, Wrapper, Selector, Box, Title } from "./styles";
-import { useNavigation } from '@react-navigation/native';
-import { TopTabs } from '../../routes/TopTabs';
+import { Container, Titulo, HeaderTop, Wrapper } from "./styles"
 
 export function Header() {
     return (

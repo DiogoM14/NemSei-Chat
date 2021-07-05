@@ -1,7 +1,8 @@
-import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-import { FlatList } from 'react-native';
-import { Divider } from '../../components/Divider';
+import { useNavigation } from '@react-navigation/native'
+import React from 'react'
+import { FlatList } from 'react-native'
+
+import { Divider } from '../../components/Divider'
 
 import { Nemsei, Container, Avatar, Wrapper, Content, Details, Name, Separator, Time, MessageAbstract, NumberOfNotifications } from './styles';
 

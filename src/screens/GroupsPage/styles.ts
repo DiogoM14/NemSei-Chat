@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 
 export const Nemsei = styled.View`
   flex: 1;
-  background: #160024;
+  background: #121212;
   padding: 0 24px;
 `;
 
@@ -61,7 +61,7 @@ export const MessageAbstract = styled.Text`
 
 export const NumberOfNotifications = styled.Text`
   padding: 4px 9px;
-  background: #8257e5;
+  background: #8257e6;
   border-radius: 20px;
   font-family: "Ubuntu_500Medium";
 `;
