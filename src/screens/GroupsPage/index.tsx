@@ -1,44 +1,33 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { FlatList } from 'react-native';
-import { Divider } from '../Divider';
+import { Divider } from '../../components/Divider';
 
-import { Container, Avatar, Wrapper, Content, Details, Name, Separator, Time, MessageAbstract, NumberOfNotifications } from './styles';
+import { Nemsei, Container, Avatar, Wrapper, Content, Details, Name, Separator, Time, MessageAbstract, NumberOfNotifications } from './styles';
 
-export function Message() {
+export function GroupsPage() {
+  const { navigate } = useNavigation()
+
   const messages = [
     {
       id: '1',
-      name: "Rafinha",
+      name: "Nem sei mas é isso",
       time: "16:32",
       message: "Este fim de semana vou sair"
     },
-    {
-      id: '2',
-      name: "Diogo",
-      time: "16:32",
-      message: "Não valem nada palhaços"
-    },
-    {
-      id: '3',
-      name: "Mongol",
-      time: "16:32",
-      message: "Juro que não copiamos stor!!! :D"
-    },
-    {
-      id: '4',
-      name: "Drogado",
-      time: "16:32",
-      message: "Não me arranjas mais daquela? hehe"
-    },
   ]
 
+  function handleNavigateToChat() {
+    navigate('Chat')
+  }
+
   return (
-    <>
+    <Nemsei>
         <FlatList
           data={messages}
           keyExtractor={item => item.id}
           renderItem={({ item }) => (
-            <Container activeOpacity={0.7}>
+            <Container activeOpacity={0.7} onPress={handleNavigateToChat}>
               <Wrapper>
                 <Avatar source={{uri: "https://github.com/diogom14.png"}} />
                 <Content>
@@ -60,6 +49,6 @@ export function Message() {
           )}
           ItemSeparatorComponent={() => <Divider />}
         />
-    </>
+    </Nemsei>
   );
 };

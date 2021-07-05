@@ -3,6 +3,8 @@ import React from 'react';
 import { Feather } from '@expo/vector-icons'
 
 import { Container, Titulo, HeaderTop, Wrapper, Selector, Box, Title } from "./styles";
+import { useNavigation } from '@react-navigation/native';
+import { TopTabs } from '../../routes/TopTabs';
 
 export function Header() {
     return (
@@ -24,17 +26,6 @@ export function Header() {
                     />
                 </Wrapper>
             </HeaderTop>
-
-            <Selector>
-                <Box 
-                    // style={{ borderBottomWidth: 2, borderColor: '#8257E5' }}
-                >
-                    <Title>Pessoas</Title>
-                </Box>
-                <Box>
-                    <Title>Grupos</Title>
-                </Box>
-            </Selector>
         </Container>
     )
 }
