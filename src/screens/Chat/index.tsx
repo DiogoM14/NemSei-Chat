@@ -4,7 +4,7 @@ import { ChatHeader } from '../../components/ChatHeader'
 import { ChatText } from '../../components/ChatText'
 import { TextInput } from '../../components/TextInput'
 
-import { Container } from "./styles"
+import { Container, Wrapper } from "./styles"
 
 export function Chat() {
   return (
@@ -12,7 +12,10 @@ export function Chat() {
       <ChatHeader />
 
       <Container>
-        <ChatText owner={false} message="sad" />
+        <Wrapper>
+
+        <ChatText owner={true} />
+        </Wrapper>
       </Container>
 
       <TextInput  />

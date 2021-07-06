@@ -4,6 +4,7 @@ import { useForm, Controller } from 'react-hook-form'
 
 import { Container, InputArea, ButtonIcon } from './styles'
 import { useMessages } from '../../hooks/useMessage'
+import { event } from 'react-native-reanimated'
 
 type FormData = {
   message: string

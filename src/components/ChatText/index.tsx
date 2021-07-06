@@ -6,7 +6,6 @@ import { FlatList } from 'react-native';
 
 export type Props = {
   owner: boolean
-  message: string
 }
 
 export function ChatText({ owner }: Props) {
@@ -17,6 +16,7 @@ export function ChatText({ owner }: Props) {
     <FlatList
       data={messages}
       keyExtractor={item => item.message}
+      showsVerticalScrollIndicator={false}
       renderItem={({ item }) => (
         <Container owner={owner}>
         <Avatar owner={owner} source={{ uri: "https://github.com/diogom14.png" }} />
