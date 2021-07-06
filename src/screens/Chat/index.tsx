@@ -2,6 +2,7 @@ import React from 'react'
 
 import { ChatHeader } from '../../components/ChatHeader'
 import { ChatText } from '../../components/ChatText'
+import { TextInput } from '../../components/TextInput'
 
 import { Container } from "./styles"
 
@@ -11,13 +12,10 @@ export function Chat() {
       <ChatHeader />
 
       <Container>
-        <ChatText owner={false} />
-        <ChatText owner={false} />
-        <ChatText owner={true} />
-        <ChatText owner={true} />
-        <ChatText owner={false} />
-        <ChatText owner={false} />
+        <ChatText owner={false} message="sad" />
       </Container>
+
+      <TextInput  />
     </>
   )
 }

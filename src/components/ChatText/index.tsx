@@ -1,23 +1,36 @@
 import React from 'react'
-
+import { useMessages } from '../../hooks/useMessage'
+import { useForm } from "react-hook-form";
 import { Container, Wrapper, Texto, Avatar } from "./styles"
+import { FlatList } from 'react-native';
 
 export type Props = {
   owner: boolean
+  message: string
 }
 
 export function ChatText({ owner }: Props) {
+  const { messages } = useMessages()
+  console.log(messages)
+
   return (
-    <>
-      <Container owner={owner}>
+    <FlatList
+      data={messages}
+      keyExtractor={item => item.message}
+      renderItem={({ item }) => (
+        <Container owner={owner}>
         <Avatar owner={owner} source={{ uri: "https://github.com/diogom14.png" }} />
 
         <Wrapper owner={owner}>
-          <Texto>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda suscipit aliquam corrupti praesentium dolor eum odio atque enim eligendi nesciunt ducimus, ipsam, facere inventore possimus totam dolorem hic consequatur a!</Texto>
+          <Texto>{item.message}</Texto>
 
         </Wrapper>
       </Container>
-    </>
+      )}
+    />
+    
+
+
   )
 }
 
