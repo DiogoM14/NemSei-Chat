@@ -7,6 +7,7 @@ import { AppStack } from './src/routes/AppStack'
 
 import { Poppins_400Regular, Poppins_600SemiBold } from "@expo-google-fonts/poppins"
 import { Ubuntu_400Regular, Ubuntu_500Medium } from "@expo-google-fonts/ubuntu"
+
 import { MessageProvider } from './src/hooks/useMessage'
 
 export default function App() {

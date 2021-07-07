@@ -1,8 +1,14 @@
-import React from 'react'
-import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { createContext, ReactNode, useContext, useState } from 'react'
+import db from '../services/firebase'
 
 type Message = {
   message: string
+}
+
+type MessageFirebase = {
+  id: string
+  message: any
 }
 
 type MessageProviderProps = {
@@ -19,10 +25,18 @@ const MessageContext = createContext<MessageContextData>(
 )
 
 export function MessageProvider({ children }: MessageProviderProps) {
-  const [messages, setMessages] = useState<Message[]>([])
+  const [messages, setMessages] = useState<MessageFirebase[]>([{id: '', message: ''}])
+
+  useEffect(() => { //Sempre que o app inicia, é feito um map os documents da db
+    db.collection('messages').orderBy('timestamp', 'asc').onSnapshot(snapshot => {
+      setMessages(snapshot.docs.map(doc => ({id: doc.id, message: doc.data()})))
+    })
+  }, [])
+
+  // console.log(messages)
 
   function createMessage(messageInput: Message) {
-    setMessages([...messages, messageInput])
+    // setMessages([...messages, messageInput])
   }
 
   return (
