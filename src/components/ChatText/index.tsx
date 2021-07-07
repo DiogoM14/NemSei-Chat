@@ -1,6 +1,5 @@
 import React from 'react'
 import { useMessages } from '../../hooks/useMessage'
-import { useForm } from "react-hook-form";
 import { Container, Wrapper, Texto, Avatar } from "./styles"
 import { FlatList } from 'react-native';
 
@@ -14,14 +13,14 @@ export function ChatText({ owner }: Props) {
   return (
     <FlatList
       data={messages}
-      keyExtractor={item => item.message}
+      keyExtractor={item => item.id}
       showsVerticalScrollIndicator={false}
       renderItem={({ item }) => (
         <Container owner={owner}>
         <Avatar owner={owner} source={{ uri: "https://github.com/diogom14.png" }} />
 
         <Wrapper owner={owner}>
-          <Texto>{item.message}</Texto>
+          <Texto>{ item.message.message.message}</Texto>
 
         </Wrapper>
       </Container>
