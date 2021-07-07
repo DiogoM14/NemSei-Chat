@@ -10,7 +10,6 @@ export type Props = {
 
 export function ChatText({ owner }: Props) {
   const { messages } = useMessages()
-  console.log(messages)
 
   return (
     <FlatList

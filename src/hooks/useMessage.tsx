@@ -11,7 +11,7 @@ type MessageProviderProps = {
 
 type MessageContextData = {
   messages: Message[]
-  createMessage: (messageInput: any) => void
+  createMessage: (messageInput: Message) => void
 }
 
 const MessageContext = createContext<MessageContextData>(
@@ -21,9 +21,8 @@ const MessageContext = createContext<MessageContextData>(
 export function MessageProvider({ children }: MessageProviderProps) {
   const [messages, setMessages] = useState<Message[]>([])
 
-  function createMessage(messageInput: any) {
+  function createMessage(messageInput: Message) {
     setMessages([...messages, messageInput])
-    // console.log(messages)
   }
 
   return (
