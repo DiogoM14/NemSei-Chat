@@ -49,7 +49,7 @@ export function TextInput() {
           <InputArea 
             placeholder="Escreva uma mensagem..." 
             placeholderTextColor="#8E8E8E" 
-            // multiline 
+            multiline 
             onChangeText={value => onChange(value)}
             value={value}
           />
