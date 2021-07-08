@@ -15,6 +15,7 @@ export function Chat() {
         <Wrapper>
 
         <ChatText owner={true} />
+        
         </Wrapper>
       </Container>
 

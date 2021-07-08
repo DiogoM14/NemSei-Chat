@@ -1,6 +1,6 @@
 import firebase from 'firebase'
 
-const firebaseApp = firebase.initializeApp({
+const firebaseConfig = {
   apiKey: process.env.API_KEY,
   authDomain: process.env.AUTH_DOMAIN,
   projectId: "nem-sei-chat",
@@ -8,8 +8,11 @@ const firebaseApp = firebase.initializeApp({
   messagingSenderId: process.env.MESSAGING_SENDER_ID,
   appId: process.env.APP_ID, 
   measurementId: process.env.MEASUREMENT_ID
-})
+}
+
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const db = firebaseApp.firestore()
+const auth = firebase.auth()
 
-export default db
+export { db, auth }

@@ -1,25 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import firebase from 'firebase'
 import { MaterialIcons } from '@expo/vector-icons'
 import { useForm, Controller } from 'react-hook-form'
+import { Keyboard, KeyboardAvoidingView, Platform } from 'react-native'
 
 import { useMessages } from '../../hooks/useMessage'
 
 import { Container, InputArea, ButtonIcon } from './styles'
 
-import db from '../../services/firebase'
-import { KeyboardAvoidingView, Platform } from 'react-native'
+import { db } from '../../services/firebase'
 
 type FormData = {
   message: string
 }
 
 export function TextInput() {
+  const [ text, setText ] = useState('')
   const { createMessage } = useMessages()
 
   const { handleSubmit, control } = useForm<FormData>()
 
   const onSubmit = (data: FormData) => {
+    Keyboard.dismiss()
 
     db.collection('messages').add({ // Adiciona a mensagem à db
       message: data,
@@ -27,7 +29,7 @@ export function TextInput() {
       timestamp: firebase.firestore.FieldValue.serverTimestamp()
     })
 
-
+    setText('')
     // createMessage(data)
   }
 
@@ -42,14 +44,15 @@ export function TextInput() {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
     <Container>
-      <Controller
+      <Controller 
         control={control}
         name="message"
         render={({field: { onChange, value }}) => (
           <InputArea 
             placeholder="Escreva uma mensagem..." 
             placeholderTextColor="#8E8E8E" 
-            multiline 
+            onSubmitEditing={handleSubmit(onSubmit)} 
+            // multiline
             onChangeText={value => onChange(value)}
             value={value}
           />

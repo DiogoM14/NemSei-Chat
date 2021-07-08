@@ -6,9 +6,11 @@ import { Input } from './styles'
 type Props = {
   inputText: string
   tipo?: boolean
+  onChangeText: (value: string) => void
+  value?: string
 }
 
-export function FieldsInput({ inputText, tipo = false }: Props) {
+export function FieldsInput({ inputText, tipo = false, onChangeText, ...rest }: Props) {
   const [ isFocused, setIsFocused ] = useState(false)
 
   return (
@@ -19,6 +21,7 @@ export function FieldsInput({ inputText, tipo = false }: Props) {
       onFocus={() => setIsFocused(true)}
       onBlur={() => setIsFocused(false)}
       isFocused={isFocused}
+      {...rest}
     />
   )
 }
