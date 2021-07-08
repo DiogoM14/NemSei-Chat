@@ -1,16 +1,18 @@
 import React from 'react'
 import { useState } from 'react'
+import { UseFormProps } from 'react-hook-form'
+import { TextInputProps } from 'react-native'
 
 import { Input } from './styles'
 
-type Props = {
+type Props = UseFormProps & {
   inputText: string
   tipo?: boolean
-  onChangeText: (value: string) => void
+  onChangeText?: (value: string) => void
   value?: string
 }
 
-export function FieldsInput({ inputText, tipo = false, onChangeText, ...rest }: Props) {
+export function FieldsInput({ inputText, tipo = false, ...rest }: Props) {
   const [ isFocused, setIsFocused ] = useState(false)
 
   return (

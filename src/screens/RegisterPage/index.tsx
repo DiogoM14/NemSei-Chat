@@ -1,11 +1,12 @@
 import { useNavigation } from '@react-navigation/native'
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm, Controller } from 'react-hook-form'
+import { TextInput } from 'react-native'
 
 import { FieldsInput } from '../../components/FieldsInput'
 import { auth } from '../../services/firebase'
 
-import { Container, Register, TextRegister, RegisterBtn, BtnText } from "./styles"
+import { Container, Register, TextRegister, RegisterBtn, BtnText, InputProvisorio } from "./styles"
 
 type FormData = {
   email: string
@@ -14,6 +15,7 @@ type FormData = {
 
 export function RegisterPage() {
   const { navigate } = useNavigation()
+  const [ isFocused, setIsFocused ] = useState(false)
 
   const { handleSubmit, control } = useForm<FormData>()
 
@@ -22,13 +24,12 @@ export function RegisterPage() {
   }
 
   const onSubmit = ({ email, password }: FormData) => {
-    console.log(email, password)
+    // console.log(email, password)
 
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
         if (auth) {
-          // Se o auth não estiver vazio
           handleNavigateToHome()
         }
       })
@@ -46,13 +47,24 @@ export function RegisterPage() {
       <Register>Registo</Register>
       <TextRegister>Faz registo com a tua conta do IPP.</TextRegister>
 
-      <Controller
+      <Controller 
         control={control}
         name="email"
-        render={({ field: { onChange, value } }) => (
-          <FieldsInput
-            inputText="Insira o seu e-mail..."
-            onChangeText={(value: string) => onChange(value)}
+        render={({field: { onChange, value }}) => (
+          // <FieldsInput
+          //   inputText="Insira o e-mail..." 
+          //   onChangeText={value => onChange(value)}
+          //   value={value}
+          // />
+
+          <InputProvisorio 
+            placeholder="Insira o e-mail..." 
+            placeholderTextColor="#8E8E8E"
+            secureTextEntry={false}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            isFocused={isFocused}
+            onChangeText={value => onChange(value)}
             value={value}
           />
         )}
@@ -62,11 +74,22 @@ export function RegisterPage() {
         control={control}
         name="password"
         render={({ field: { onChange, value } }) => (
-          <FieldsInput
-            inputText="Insira a password..."
-            onChangeText={(value: any) => onChange(value)}
-            value={value}
-          />
+          // <FieldsInput
+          //   inputText="Insira a password..." 
+          //   onChangeText={value => onChange(value)}
+          //   value={value}
+          // />
+
+          <InputProvisorio 
+          placeholder="Insira a password..." 
+          placeholderTextColor="#8E8E8E"
+          secureTextEntry={true}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          isFocused={isFocused}
+          onChangeText={value => onChange(value)}
+          value={value}
+        />
         )}
       />
 
