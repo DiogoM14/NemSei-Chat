@@ -10,6 +10,12 @@ import { Ubuntu_400Regular, Ubuntu_500Medium } from "@expo-google-fonts/ubuntu"
 
 import { MessageProvider } from './src/hooks/useMessage'
 
+import { LogBox } from 'react-native';
+
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs();//Ignore all log notifications
+
+
 export default function App() {
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,

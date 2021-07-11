@@ -20,6 +20,13 @@ export const Wrapper = styled.View<Props>`
   padding: 16px;
 `
 
+export const Name = styled.Text`
+  color: #828282;
+  font-family: "Ubuntu_400Regular";
+  font-size: 12px;
+  text-align: left;
+`
+
 export const Texto = styled.Text`
   color: #fff;
   font-family: "Ubuntu_400Regular";

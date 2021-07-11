@@ -6,6 +6,7 @@ import { db } from '../services/firebase'
 type Message = {
   id: string
   message: string
+  username?: string
 }
 
 type MessageProviderProps = {
@@ -24,7 +25,7 @@ export function MessageProvider({ children }: MessageProviderProps) {
 
   useEffect(() => { //Sempre que o app inicia, é feito um map os documents da db
     db.collection('messages').orderBy('timestamp', 'asc').onSnapshot(snapshot => {
-      setMessages(snapshot.docs.map(doc => ({id: doc.id, message: doc.data().message.message})))
+      setMessages(snapshot.docs.map(doc => ({id: doc.id, message: doc.data().message.message, username: doc.data().username})))
     })
   }, [])
 

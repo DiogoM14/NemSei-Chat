@@ -1,7 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
 import { useForm, Controller } from 'react-hook-form'
-import { TextInput } from 'react-native'
 
 import { FieldsInput } from '../../components/FieldsInput'
 import { auth } from '../../services/firebase'

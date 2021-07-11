@@ -8,7 +8,7 @@ import { useMessages } from '../../hooks/useMessage'
 
 import { Container, InputArea, ButtonIcon } from './styles'
 
-import { db } from '../../services/firebase'
+import { db, auth } from '../../services/firebase'
 
 type FormData = {
   message: string
@@ -25,7 +25,7 @@ export function TextInput() {
 
     db.collection('messages').add({ // Adiciona a mensagem à db
       message: data,
-      username: "Diogo Martins",
+      username: auth.currentUser?.email,
       timestamp: firebase.firestore.FieldValue.serverTimestamp()
     })
 
